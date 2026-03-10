@@ -15,6 +15,17 @@ const difficultyColors: Record<string, string> = {
   Advanced: 'bg-red-100 text-red-700',
 };
 
+const categoryColors: Record<string, string> = {
+  'Derivatives Trading': 'bg-purple-100 text-purple-700',
+  'Blockchain Technology': 'bg-blue-100 text-blue-700',
+  'DeFi': 'bg-cyan-100 text-cyan-700',
+  'Web3 Development': 'bg-indigo-100 text-indigo-700',
+  'NFT Markets': 'bg-pink-100 text-pink-700',
+  'Technical Analysis': 'bg-orange-100 text-orange-700',
+  'Risk Management': 'bg-red-100 text-red-700',
+  'Crypto Fundamentals': 'bg-emerald-100 text-emerald-700',
+};
+
 const CourseCard: React.FC<CourseCardProps> = ({ course, onSelect, onBookmark, isBookmarked }) => {
   return (
     <div
@@ -38,7 +49,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, onSelect, onBookmark, i
           }}
           className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-sm hover:bg-white transition-colors"
         >
-          <BookmarkIcon className={`w-4 h-4 ${isBookmarked ? 'text-blue-600' : 'text-gray-500'}`} filled={isBookmarked} />
+          <BookmarkIcon className={`w-4 h-4 ${isBookmarked ? 'text-orange-600' : 'text-gray-500'}`} filled={isBookmarked} />
         </button>
 
         {/* Difficulty Badge */}
@@ -46,11 +57,16 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, onSelect, onBookmark, i
           {course.difficulty}
         </span>
 
+        {/* Category Badge (optional overlay) */}
+        <span className={`absolute bottom-3 left-3 px-2.5 py-1 rounded-md text-xs font-semibold ${categoryColors[course.category] || 'bg-gray-100 text-gray-700'}`}>
+          {course.category}
+        </span>
+
         {/* Progress bar for enrolled courses */}
         {course.isEnrolled && course.progress !== undefined && course.progress > 0 && (
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
             <div
-              className="h-full bg-gradient-to-r from-green-400 to-emerald-500 transition-all"
+              className="h-full bg-gradient-to-r from-orange-400 to-orange-500 transition-all"
               style={{ width: `${course.progress}%` }}
             />
           </div>
@@ -59,11 +75,8 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, onSelect, onBookmark, i
 
       {/* Content */}
       <div className="p-5 flex flex-col flex-1">
-        {/* Category */}
-        <span className="text-xs font-medium text-blue-600 uppercase tracking-wide">{course.category}</span>
-        
         {/* Title */}
-        <h3 className="mt-2 text-base font-semibold text-gray-900 line-clamp-2 group-hover:text-blue-700 transition-colors">
+        <h3 className="mt-2 text-base font-semibold text-gray-900 line-clamp-2 group-hover:text-orange-700 transition-colors">
           {course.title}
         </h3>
 
@@ -106,7 +119,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, onSelect, onBookmark, i
                 e.stopPropagation();
                 onSelect(course.id);
               }}
-              className="px-4 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-4 py-1.5 bg-orange-600 text-white text-sm font-medium rounded-lg hover:bg-orange-700 transition-colors"
             >
               Enroll Now
             </button>
