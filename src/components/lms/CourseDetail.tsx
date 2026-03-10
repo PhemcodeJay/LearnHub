@@ -10,9 +10,6 @@ import {
   ChevronDownIcon,
   BookmarkIcon,
   NoteIcon,
-  TrendingUpIcon,
-  ShieldIcon,
-  BarChartIcon,
 } from './Icons';
 
 interface CourseDetailProps {
@@ -131,7 +128,7 @@ const CourseDetail: React.FC<CourseDetailProps> = ({
           <div className="flex items-center gap-3">
             {/* Market indicator */}
             <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-900 rounded-lg border border-gray-700">
-              <TrendingUpIcon className={`w-4 h-4 ${marketSentiment === 'Bullish' ? 'text-green-400' : 'text-yellow-400'}`} />
+              <StarIcon className={`w-4 h-4 ${marketSentiment === 'Bullish' ? 'text-green-400' : 'text-yellow-400'}`} />
               <span className="text-xs font-medium text-gray-300">Market: {marketSentiment}</span>
             </div>
             
@@ -379,21 +376,21 @@ const CourseDetail: React.FC<CourseDetailProps> = ({
                   <h2 className="text-2xl font-bold text-white mb-4">Key Features of Derivatives Trading</h2>
                   <div className="grid gap-4">
                     <div className="flex items-start gap-3">
-                      <BarChartIcon className="w-6 h-6 text-orange-400 flex-shrink-0" />
+                      <CheckIcon className="w-6 h-6 text-orange-400 flex-shrink-0" />
                       <div>
                         <h3 className="font-semibold text-white mb-1">Sophisticated Strategies</h3>
                         <p className="text-sm text-gray-400">Derivatives trading allows for the implementation of complex trading strategies, including arbitrage, speculation, and risk management techniques.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <TrendingUpIcon className="w-6 h-6 text-orange-400 flex-shrink-0" />
+                      <CheckIcon className="w-6 h-6 text-orange-400 flex-shrink-0" />
                       <div>
                         <h3 className="font-semibold text-white mb-1">Leverage</h3>
                         <p className="text-sm text-gray-400">Derivatives trading often involves the use of leverage, which amplifies both potential profits and losses. Learn robust risk management practices.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <ShieldIcon className="w-6 h-6 text-orange-400 flex-shrink-0" />
+                      <CheckIcon className="w-6 h-6 text-orange-400 flex-shrink-0" />
                       <div>
                         <h3 className="font-semibold text-white mb-1">Market Efficiency</h3>
                         <p className="text-sm text-gray-400">Derivatives markets contribute to price discovery and market efficiency by providing liquidity and facilitating risk transfer among market participants.</p>
@@ -658,7 +655,7 @@ const CourseDetail: React.FC<CourseDetailProps> = ({
                       onClick={() => alert(`Opening ${tool}...`)}
                       className="w-full flex items-center gap-3 p-3 bg-gray-900 rounded-lg hover:bg-gray-700 transition-colors text-left border border-gray-700"
                     >
-                      <BarChartIcon className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                      <PlayIcon className="w-5 h-5 text-orange-400 flex-shrink-0" />
                       <span className="text-sm text-gray-300">{tool}</span>
                     </button>
                   ))}
